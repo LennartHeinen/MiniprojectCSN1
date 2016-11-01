@@ -4,24 +4,33 @@ print('Hallo')
 print('Hello World3')
 print(' ')
 
-
 import csv
+
+
 def Quiz():
     Quizfile = open('Quizantwoorden.csv', 'r')
     Quizvragen = open('Quizvragen.csv', 'r')
+
     A = True
-    while A==True:
+    while A == True:
         Vraag = Quizvragen.readline()
-        print(Vraag)
         GoedAntw = Quizfile.readline()
-        antwoord = input('Is dit True of False? :')
+        GoedAntw = GoedAntw.replace('\n','')
+
+        antwoord = str(input('Is dit True of False? :'))
+        print(len(antwoord))
+        print(len(GoedAntw))
         if antwoord == GoedAntw:
-            print('Je hebt het antwoord goed.')
+            print('Je hebt het antwoord goed')
         else:
-            print('Je hebt het antwoord fout')
+           print('Je hebt het antwoord fout')
         if Vraag == '':
-            break
+            A = False
 
 Quiz()
+
+
+
+
 
 
