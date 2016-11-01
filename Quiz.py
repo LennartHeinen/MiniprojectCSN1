@@ -18,8 +18,6 @@ def Quiz():
         GoedAntw = GoedAntw.replace('\n','')
 
         antwoord = str(input('Is dit True of False? :'))
-        print(len(antwoord))
-        print(len(GoedAntw))
         if antwoord == GoedAntw:
             print('Je hebt het antwoord goed')
         else:
