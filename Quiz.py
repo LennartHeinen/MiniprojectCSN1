@@ -31,7 +31,7 @@ def randomQuiz():
     dict = [{'Nummer': 1, 'vraag': 'Is koen een geit?', 'antwoord': True},
             {'Nummer': 2, 'vraag': 'Is Roy een koe?', 'antwoord': True},
             {'Nummer': 3, 'vraag': 'Is Chung een kip?', 'antwoord': True},
-            {'Nummer': 4,'vraag': 'Stinken we?', 'antwoord': False},
+            {'Nummer': 4, 'vraag': 'Stinken we?', 'antwoord': False},
             {'Nummer': 5, 'vraag': 'Wordt PSV kampioen?', 'antwoord': False}]
 
     random.shuffle(dict)
