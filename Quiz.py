@@ -5,6 +5,7 @@ print('Hello World3')
 print(' ')
 
 import csv
+import random
 
 
 def Quiz():
@@ -25,10 +26,27 @@ def Quiz():
         if Vraag == '':
             A = False
 
+def randomQuiz():
+
+    dict = [{'Nummer': 1, 'vraag': 'Is koen een geit?', 'antwoord': True},
+            {'Nummer': 2, 'vraag': 'Is Roy een koe?', 'antwoord': True},
+            {'Nummer': 3, 'vraag': 'Is Chung een kip?', 'antwoord': True},
+            {'Nummer': 4,'vraag': 'Stinken we?', 'antwoord': False},
+            {'Nummer': 5, 'vraag': 'Wordt PSV kampioen?', 'antwoord': False}]
+
+    random.shuffle(dict)
+    print(dict)
+
+    for i in range(len(dict)):
+        print(dict[i]['Nummer'], dict[i]['vraag'])
+        antwoord = str(input('Is True or False'))
+        goedAntwoord = dict[i]['antwoord']
+        print(type(goedAntwoord))
+        if antwoord == str(goedAntwoord):
+            print('Goedzo noob')
+        else:
+            print('Fout sukkel')
 Quiz()
-
-
-
-
+randomQuiz()
 
 
