@@ -26,6 +26,28 @@ def Quiz():
         if Vraag == '':
             A = False
 
+def sportVragen ():
+    quizFile = 'Sport_vragen.csv'
+    vragen = csv.DictReader(open(quizFile,'r'),delimiter=',')
+    vragenLijst = []
+    for line in vragen:
+        vragenLijst.append(line)
+    print(vragenLijst)
+
+    random.shuffle(vragenLijst)
+    print(vragenLijst)
+
+
+    for i in range(len(vragenLijst)):
+        print(vragenLijst[i]['nummer'], vragenLijst[i]['vraag'])
+        antwoord = str(input('Is True or False'))
+        goedAntwoord = vragenLijst[i]['antwoord']
+        print(type(goedAntwoord))
+        if antwoord == str(goedAntwoord):
+            print('Goedzo noob')
+        else:
+            print('Fout sukkel')
+
 def randomQuiz():
 
     dict = [{'Nummer': 1, 'vraag': 'Is koen een geit?', 'antwoord': True},
@@ -46,7 +68,8 @@ def randomQuiz():
             print('Goedzo noob')
         else:
             print('Fout sukkel')
-Quiz()
-randomQuiz()
 
+sportVragen()
+#Quiz()
+#randomQuiz()
 
