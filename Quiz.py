@@ -37,16 +37,16 @@ def sportVragen ():
     random.shuffle(vragenLijst)
     print(vragenLijst)
 
-
+    punten = 0
     for i in range(len(vragenLijst)):
         print(vragenLijst[i]['nummer'], vragenLijst[i]['vraag'])
         antwoord = str(input('Is True or False'))
         goedAntwoord = vragenLijst[i]['antwoord']
-        print(type(goedAntwoord))
-        if antwoord == str(goedAntwoord):
-            print('Goedzo noob')
-        else:
-            print('Fout sukkel')
+        while button_pressed:
+            if antwoord == str(goedAntwoord):
+                print('Goedzo noob')
+            else:
+                print('Fout sukkel')
 
 def randomQuiz():
 
