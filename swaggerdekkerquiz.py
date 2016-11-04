@@ -21,12 +21,12 @@ GPIO.setup(button_pin_false, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 def gebruiker():
     gebruiker = raw_input('Wat is je naam?')
     return gebruiker
+
 # functie keuzemenu
 def menu():
 
     while True:
-        keuze = int(input('kies 1 voor dieren Quiz en 2 voor sport quiz'))
-        print(keuze)
+        keuze = int(input('kies 1 voor dieren quiz of 2 voor sport quiz'))
         if keuze == 1:
             bestand = '25_vragen_dieren.csv'
             break
@@ -61,32 +61,32 @@ def quiz(quizFile):
 
                     if antwoord == str(goedAntwoord):
                         GPIO.output(led_pin_red, True)
-                        time.sleep(2)
+                        time.sleep(4)
                         GPIO.output(led_pin_red, False)
                         print('Goed')
                         score += 1
                     else:
                         GPIO.output(led_pin_green, True)
-                        time.sleep(2)
+                        time.sleep(4)
                         GPIO.output(led_pin_green, False)
                         print('Fout')
-                    time.sleep(0.2)
+                    time.sleep(1)
                     break
 
                 elif GPIO.input(button_pin_false):
                     antwoord = 'ONWAAR'
                     if antwoord == str(goedAntwoord):
                         GPIO.output(led_pin_red, True)
-                        time.sleep(2)
+                        time.sleep(4)
                         GPIO.output(led_pin_red, False)
                         print('Goed')
                         score += 1
                     else:
                         GPIO.output(led_pin_green, True)
-                        time.sleep(2)
+                        time.sleep(4)
                         GPIO.output(led_pin_green, False)
                         print('Fout')
-                    time.sleep(0.2)
+                    time.sleep(1)
                     break
 
         return score
@@ -97,11 +97,12 @@ def uitslag(naam, punten):
 	if punten == 25:
 		print ('Gefeliciteerd '+ naam + ', jij bent echt een swekkerdekker! '+ str(punten)+'/25')
 	else:
-		print(naam + ' heeft ' + str(punten) + ' gehaald!')
+		print(naam + ' heeft ' + str(punten) + ' punten gehaald!')
 try:
 	naam = gebruiker()
 	quizFile = menu()
 	punten = quiz(quizFile)
 	uitslag(naam, punten)
 except KeyboardInterrupt:
-	print('tot ziens')
+    GPIO.cleanup()
+    print('tot ziens')
